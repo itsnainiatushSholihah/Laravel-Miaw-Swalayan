@@ -57,14 +57,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/transaction/add" class="nav-link">
+                <a href="/transactions/create" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-warning"></i>
                   <p>Tambah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/transaction" class="nav-link">
+                <a href="/transactions" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-info"></i>
                   <p>Lihat</p>
@@ -85,14 +85,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/customer/add" class="nav-link">
+                <a href="/customers/create" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-warning"></i>
                   <p>Tambah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/customer" class="nav-link">
+                <a href="/customers" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-info"></i>
                   <p>Lihat</p>
@@ -113,14 +113,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/stuff/add" class="nav-link">
+                <a href="/stuff/create" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-warning"></i>
                   <p>Tambah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/stuff" class="nav-link">
+                <a href="/stuffs" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-info"></i>
                   <p>Lihat</p>
@@ -141,14 +141,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/category/add" class="nav-link">
+                <a href="/categories/create" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-warning"></i>
                   <p>Tambah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/category" class="nav-link">
+                <a href="/categories" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-info"></i>
                   <p>Lihat</p>
@@ -169,13 +169,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/user/add" class="nav-link">
+                <a href="/users/create" class="nav-link">
                   <i class="nav-icon far fa-circle text-warning"></i>
                   <p>Tambah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/user" class="nav-link">
+                <a href="/users" class="nav-link">
                   {{-- <i class="far fa-circle nav-icon"></i> --}}
                   <i class="nav-icon far fa-circle text-info"></i>
                   <p>Lihat</p>
