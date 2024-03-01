@@ -13,7 +13,11 @@ class StuffController extends Controller
      */
     public function index()
     {
-        return view('stuff.list');
+        $stuffs = Stuff::all();
+
+        return view('stuff.list',[
+            'data' => $stuffs,
+        ]);
     }
 
     /**
@@ -29,7 +33,7 @@ class StuffController extends Controller
      */
     public function store(StoreStuffRequest $request)
     {
-        //
+        Stuff::create('/stuffs');
     }
 
     /**
@@ -37,7 +41,7 @@ class StuffController extends Controller
      */
     public function show(Stuff $stuff)
     {
-        //
+        return view('/stuffs');
     }
 
     /**
@@ -53,7 +57,10 @@ class StuffController extends Controller
      */
     public function update(UpdateStuffRequest $request, Stuff $stuff)
     {
-        //
+        $stuff->fill($request->all());
+        $stuff->save();
+
+        return redirect('/stuffs');
     }
 
     /**

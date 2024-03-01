@@ -24,17 +24,23 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('caregory', [CategoryController::class, 'index']);
-Route::get('category/add', [CategoryController::class, 'create']);
+route::resource('customers', CustomerController::class);
+route::resource('categories', CategoryController::class);
+route::resource('users', UserController::class);
+route::resource('stuffs', StuffController::class);
 
-Route::get('customer', [CustomerController::class, 'index']);
-Route::get('customer/add', [CustomerController::class, 'create']);
+Route::get('transactions', [TransactionController::class, 'index']);
+Route::get('transactions/add', [TransactionController::class, 'create']);
 
-Route::get('stuff', [StuffController::class, 'index']);
-Route::get('stuff/add', [StuffController::class, 'create']);
 
-Route::get('transaction', [TransactionController::class, 'index']);
-Route::get('transaction/add', [TransactionController::class, 'create']);
+// Route::get('caregories', [CategoryController::class, 'index']);
+// Route::get('categories/add', [CategoryController::class, 'create']);
 
-Route::get('user', [UserController::class, 'index']);
-Route::get('user/add', [UserController::class, 'create']);
+// Route::get('customers', [CustomerController::class, 'index']);
+// Route::get('customers/add', [CustomerController::class, 'create']);
+
+// Route::get('stuffs', [StuffController::class, 'index']);
+// Route::get('stuffs/add', [StuffController::class, 'create']);
+
+// Route::get('users', [UserController::class, 'index']);
+// Route::get('users/add', [UserController::class, 'create']);

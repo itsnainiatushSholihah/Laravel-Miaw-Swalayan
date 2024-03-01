@@ -13,7 +13,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.list');
+        $users = User::all();
+
+        return view('user.list', [
+            'data' => $users,
+        ]);
     }
 
     /**
@@ -29,7 +33,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        User::create('/users');
     }
 
     /**
@@ -37,7 +41,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('/users');
     }
 
     /**
@@ -53,7 +57,10 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->fill($request->all());
+        $user->save();
+
+        return redirect('/users');
     }
 
     /**
