@@ -8,6 +8,7 @@ use App\Http\Controllers\DetailTransactionController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,18 +20,31 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('generateData', [AuthController::class, 'generateData']);
 
 Route::get('/', function () {
     return view('home');
+})->middleware('is.auth');
+
+Route::get('login', [AuthController::class, 'showLogin'])->middleware('is.not.auth');
+Route::post('login', [AuthController::class, 'actionLogin'])->middleware('is.not.auth');
+
+Route::middleware(['is.auth'])->group(function(){
+
+    Route::get('logout', [AuthController::class, 'actionLogout']);
+
+    Route::get('transactions', [TransactionController::class, 'index']);
+    Route::get('transactions/create', [TransactionController::class, 'create']);
+    
+    route::resource('customers', CustomerController::class);
+    route::resource('categories', CategoryController::class);
+    route::resource('users', UserController::class);
+    route::resource('stuffs', StuffController::class);
 });
 
-route::resource('customers', CustomerController::class);
-route::resource('categories', CategoryController::class);
-route::resource('users', UserController::class);
-route::resource('stuffs', StuffController::class);
 
-Route::get('transactions', [TransactionController::class, 'index']);
-Route::get('transactions/add', [TransactionController::class, 'create']);
+
+
 
 
 // Route::get('caregories', [CategoryController::class, 'index']);

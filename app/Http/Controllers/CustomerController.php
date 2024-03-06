@@ -13,7 +13,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer ::all();
+        $customers = Customer::all();
 
         return view('customer.list',[
             'data'=> $customers,
@@ -33,7 +33,7 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        Customer :: create($request->all());
+        Customer::create($request->all());
 
         return redirect('/customers');
     }

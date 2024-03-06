@@ -33,7 +33,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        User::create('/users');
+        User::create($request->all());
+
+        return redirect('/users');
     }
 
     /**
@@ -41,7 +43,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('/users');
+        return view('user.add', [
+            'data'=>$user,
+        ]);
     }
 
     /**
@@ -68,6 +72,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect('/users');
     }
 }

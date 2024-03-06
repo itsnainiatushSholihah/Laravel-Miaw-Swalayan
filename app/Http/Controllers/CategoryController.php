@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class CategoryController extends Controller
 {
@@ -33,7 +34,9 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        Category::create('/categories');
+        Category::create($request->all());
+
+        return redirect('/categories');
     }
 
     /**
@@ -41,7 +44,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('/categories');
+        return view('/category.add', [
+            'data'=>$category,
+        ]);
     }
 
     /**
@@ -68,6 +73,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect('/categories');
     }
 }

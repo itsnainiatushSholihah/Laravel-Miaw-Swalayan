@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Stuff;
 use App\Http\Requests\StoreStuffRequest;
 use App\Http\Requests\UpdateStuffRequest;
+use App\Models\Category;
 
 class StuffController extends Controller
 {
@@ -33,7 +34,9 @@ class StuffController extends Controller
      */
     public function store(StoreStuffRequest $request)
     {
-        Stuff::create('/stuffs');
+        Stuff::create($request->all());
+
+        return redirect('/stuffs');
     }
 
     /**
@@ -41,7 +44,9 @@ class StuffController extends Controller
      */
     public function show(Stuff $stuff)
     {
-        return view('/stuffs');
+        return view('stuff.add', [
+            'data'=> $stuff,
+        ]);
     }
 
     /**
@@ -68,6 +73,8 @@ class StuffController extends Controller
      */
     public function destroy(Stuff $stuff)
     {
-        //
+       $stuff->delete();
+
+       return redirect('/stuffs');
     }
 }

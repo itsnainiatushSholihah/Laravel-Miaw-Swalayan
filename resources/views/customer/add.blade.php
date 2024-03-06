@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>General Form</h1>
+            <h1>Data Customer</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Customer</li>
+              <li class="breadcrumb-item active">Data Customer</li>
             </ol>
           </div>
         </div>
@@ -44,11 +44,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="id">Kode</label>
-                    <input type="email" class="form-control" name="id" placeholder="Kode" value="{{ @$data->id}}">
+                    <input type="text" class="form-control" name="id" placeholder="Kode" value="{{ @$data->id}}">
                   </div>
                   <div class="form-group">
                     <label for="name">Nama</label>
-                    <input type="text" class="form-control" name="name" placeholder="name">
+                    <input type="text" class="form-control" name="name" placeholder="name" value="{{ @$data->name}}">
                   </div>
                   <div class="form-group">
                     <label for="address">Alamat</label>
@@ -58,11 +58,11 @@
                     <div class="form-group">
                         <label for="exampleSelectionRounded0">Jenis Kelamin</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" value="2" {{ @$data->gender == 1 ? 'checked' : ''}}>
+                        <input class="form-check-input" type="radio" name="gender" value="1" {{ @$data->gender == 1 ? 'checked' : ''}}>
                         <label class="form-check-label">Laki-laki</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender"  value="2" {{ @$data->gender == 1 ? 'checked' : ''}}>
+                        <input class="form-check-input" type="radio" name="gender"  value="2" {{ @$data->gender == 2 ? 'checked' : ''}}>
                         <label class="form-check-label">Perempuan</label>
                       </div>
                     </div>
@@ -71,7 +71,7 @@
                         <label for="exampleSelectRounded0">Status</label>
                     <select name="status"  class="custom-select rounded-0">
                         <option value="1" {{ @$data->status == 1 ? 'selected' : ''}}>Aktif</option>
-                        <option value="1" {{ @$data->status == 1 ? 'selected' : ''}}>Aktif</option>
+                        <option value="0" {{ @$data->status == 0 ? 'selected' : ''}}>Tidak Aktif</option>
                       </select>
                     </div>
                 </div>
