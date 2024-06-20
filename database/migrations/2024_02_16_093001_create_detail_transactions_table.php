@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detail_transactions', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->string('nota')->nullable();
-            $table->string('id_stuff')->nullable();
+            $table->id();
+            $table->string('nota');
+            $table->string('id_stuff');
             $table->integer('count')->default(0);
             $table->double('price')->default(0);
             $table->double('discount')->default(0);

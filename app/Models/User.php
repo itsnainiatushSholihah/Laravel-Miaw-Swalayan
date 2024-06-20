@@ -26,4 +26,8 @@ class User extends Authenticalable
         'email_verified_at'=>'datetime',
         'password'=>'hashed',
    ];
+
+   public function transaction() {
+     return $this->hasMany(transaction::class, 'id_user', 'id');
+ }
 }

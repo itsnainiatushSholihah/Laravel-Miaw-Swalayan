@@ -22,4 +22,8 @@ class Customer extends Model
         'status',
         'gender',
     ];
+
+    function transaction() {
+        return $this->hasMany(Transaction::class, 'id_customer', 'id');
+    }
 }

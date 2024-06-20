@@ -11,6 +11,21 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">
+            <button type="button" class="btn btn-success">Logout</button>
+          </button>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <button type="button" class="btn btn-light">Fullscreen</button>
+          </button>
+        </a>
+      </li>
+
     </ul>
 
     

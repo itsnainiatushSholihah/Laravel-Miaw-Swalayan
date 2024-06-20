@@ -28,6 +28,24 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
+
+              @if (session('mess'))
+              <div class="card card-default">
+                <div class="card-header">
+                  <h3 class="card-title">{{ session('mess') }}</h3>
+                      
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              @endif
+              
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Data Customer</h3>
@@ -46,7 +64,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
                         @foreach ( $data as $item )
                             <tr>
                                 <td> {{ $item->id}} </td>
@@ -55,19 +72,17 @@
                                 <td> {{ $item->gender == 1 ? 'laki-laki' : 'Perempuan'}} </td>
                                 <td> {{ $item->status == 1 ? 'Aktif' : 'Tidak Aktif'}} </td>
                                 <td>
-                                    <a href="/customers/{{$item->id}}">
-                                        <button type="button" class="btn btn-waring btn-sm">
-
-                                        </button>
+                                  <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a href="/customers/{{ $item->id }}">
+                                      <button type="button" class="btn btn-danger">Edit</button>
                                     </a>
 
-                                    <form action="/customers/{{$item->id}}" method="GET">
+                                    <form action="/customers/{{ $item->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger btn-sm">
-
-                                        </button>
+                                        <button type="submit" class="btn btn-warning">Hapus</button>
                                     </form>
+                                  </div>
                                 </td>
                             </tr>
                         @endforeach

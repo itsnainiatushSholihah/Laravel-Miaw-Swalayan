@@ -23,4 +23,12 @@ class Stuff extends Model
         'status',
         'id_category',
     ];
+
+    function category() {
+        return $this->hasOne(Category::class, 'id', 'id_category');
+    }
+
+    function detail() {
+        return $this->hasMany(DetailTransaction::class, 'id_stuff', 'id');
+    }
 }

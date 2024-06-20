@@ -30,36 +30,45 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Tambah Customer</h3>
+                <h3 class="card-title">Tambah Kategori</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form action="/categories/{{ @$data->id}}" method="POST">
 
-                @if (@$data)
-                    @method('PUT')
-                @endif
+                <section class="content">
+                  <div class="container-fluid">
 
-                @csrf
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="id">Kode</label>
-                    <input type="text" class="form-control" name="id" placeholder="Kode" value="{{ @$data->id}}">
-                  </div>
-                  <div class="form-group">
-                    <label for="name">Nama</label>
-                    <input type="text" class="form-control" name="name" placeholder="name" value="{{ @$data->name}}">>
-                  </div>
-                  <div class="form-group">
-                    <label for="status">Status</label>
-                    <input type="text" class="form-control" name="status" placeholder="status" value="{{ @$data->status}}">
-                  </div>
-                </div>
-                <!-- /.card-body -->
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
+                      @if (@$data)
+                          @method('PUT')
+                      @endif
+
+                      @csrf
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="id">Kode</label>
+                          <input type="text" class="form-control" name="id" placeholder="Kode" value="{{ @$data->id}}">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Nama</label>
+                          <input type="text" class="form-control" name="name" placeholder="name" value="{{ @$data->name}}">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleselectRounded0">Status</label>
+                          <select name="status" class="custom-select rounded-0">
+                            <option value="1" {{ @$data->status == 1 ? 'selected' : ''}}>Aktif</option>
+                            <option value="0" {{ @$data->status == 0 ? 'selected' : ''}}>Tidak Aktif</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- /.card-body -->
+
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                      </div>
+                    </div>
+                </section>
               </form>
             </div>
       </div>

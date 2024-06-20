@@ -43,10 +43,10 @@ class AuthController extends Controller
     function generateData()
     {
         User::create([
-            'name' => 'Pobi',
-            'email' => 'Pobianto@gmail.com',
+            'name' => 'Pororo',
+            'email' => 'Pororo@gmail.com',
             'email_verified_at' => now(),
-            'password' => '12345',
+            'password' => '123',
             'remember_token' => Str::random(10),
         ]);
     }

@@ -21,4 +21,16 @@ class Transaction extends Model
         'id_customer',
         'date',
     ];
+
+    public function customer() {
+        return $this->hasOne(Customer::class, 'id', 'id_customer');
+    }
+
+    public function detail() {
+        return $this->hasMany(DetailTransaction::class, 'nota', 'nota');
+    }
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'id_user');
+    }
 }

@@ -21,7 +21,7 @@
         }
 
         .judul {
-            font-family: arial black;
+            font-family: times new roman black;
             font-size: 20px;
         }
     </style>
@@ -30,13 +30,12 @@
 <body class="hold-transition login-page" style="background-image: url(/img/images.jpg)">
 <div class="login-box">
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
+  <div class="card card-outline">
+    <div class="card-header text-center"  style="background-color: rgb(231, 207, 161)">
         <p class="judul">Miauw Swalayan</p>
       {{-- <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a> --}}
-      <img  class="logo" src="/img/logo.2.png" alt="Welcome">
     </div>
-    <div class="card-body">
+    <div class="card-body" style="background-color: rgb(173, 173, 173)">
       <p class="login-box-msg judul">Masuk Dulu</p>
 
       <form action="/login" method="post">

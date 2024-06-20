@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use app\Models\Customer;
+
 use App\Models\User;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class UserController extends Controller
 {
@@ -31,11 +35,16 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
+        $path = $request->file('file')->store('avatar');
+
+        $request->merge(['avatar' =>$path]);
         User::create($request->all());
 
-        return redirect('/users');
+        return redirect('/users')->with([
+           'mess' => 'Data Berhasil disimpan Ya Sayang',
+        ]);
     }
 
     /**
@@ -59,12 +68,14 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
         $user->fill($request->all());
         $user->save();
 
-        return redirect('/users');
+        return redirect('/users')->with([
+            'mess' => 'Data Berhasil disimpan Ya Sayang',
+        ]);
     }
 
     /**
@@ -72,8 +83,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        Storage::delete($user->avatar);
+
         $user->delete();
 
-        return redirect('/users');
+        return redirect('/users')->with([
+            'mess' => 'Data Berhasil disimpan Ya Sayang',
+        ]);
     }
 }
